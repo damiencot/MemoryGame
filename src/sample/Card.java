@@ -1,42 +1,46 @@
 package sample;
 
-import javafx.animation.FadeTransition;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import javafx.scene.control.Label;
-import javax.swing.*;
 import java.util.Collections;
 import java.util.List;
-import java.awt.*;
 import java.util.ArrayList;
 
-public class Memory extends Application {
+
+public class Card extends Application {
+
 
     private Tile selected = null;
     private int clickCount = 2;
+
+
+    //UI
+    private Pane root = new Pane();
     private Label labelScore = new Label();
+    private TextField textJoueur = new TextField();
+    Button buttonSave = new Button("Save");
+    Button buttonQuit = new Button("Quit");
+    Button buttonReplay = new Button("Replay");
+    Button buttonNextPlayer = new Button("Next");
+
+    //Frame implements
     private BorderPane panel1 = new BorderPane();
     private BorderPane panel2 = new BorderPane();
 
+
     private Parent createContent(){
 
-
-        Pane root = new Pane();
         labelScore.setText("test");
         labelScore.setContentDisplay(ContentDisplay.BOTTOM);
         root.setPadding(new Insets(10));
@@ -62,7 +66,6 @@ public class Memory extends Application {
         }
 
         Collections.shuffle(tiles);
-
         return root ;
 
 
@@ -73,6 +76,7 @@ public class Memory extends Application {
         primaryStage.show();
     }
 
+/*
     private class Tile extends StackPane{
 
         ImageView img = new ImageView();
@@ -163,9 +167,36 @@ public class Memory extends Application {
         }
 
     }
+*/
 
+
+    public Label getLabelScore() {
+        return labelScore;
+    }
+
+    public void setLabelScore(Label labelScore) {
+        this.labelScore = labelScore;
+    }
+
+    public Tile getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Tile selected) {
+        this.selected = selected;
+    }
+
+    public int getClickCount() {
+        return clickCount;
+    }
+
+    public void setClickCount(int clickCount) {
+        this.clickCount = clickCount;
+    }
 
     public static void main(String[] args) {
         launch(args);
     }
+
+
 }

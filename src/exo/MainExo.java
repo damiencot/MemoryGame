@@ -19,7 +19,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Main extends Application {
+public class MainExo extends Application {
 
     private static final int NUM_OF_PAIRS = 72;
     private static final int NUM_PER_ROW = 12;
